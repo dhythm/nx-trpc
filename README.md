@@ -72,7 +72,7 @@ npx nx run db:delete
 Seeding database,
 
 ```sh
-npm install --save-dev ts-node
+npm install --save-dev ts-node @types/node
 touch libs/db/prisma/seed.ts
 npx nx run db:seed
 ```

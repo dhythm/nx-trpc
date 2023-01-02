@@ -23,7 +23,7 @@
     "@svgr/webpack": "^6.1.2",
     "@testing-library/react": "13.4.0",
     "@types/jest": "28.1.1",
-    "@types/node": "18.7.1",
+    "@types/node": "^18.7.1",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
@@ -71,6 +71,6 @@
   },
   "prisma": {
     "schema": "libs/db/prisma/schema.prisma",
-    "seed": "ts-node libs/db/prisma/seed.ts"
+    "seed": "ts-node --project libs/db/tsconfig.json libs/db/prisma/seed.ts"
   }
 }

@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 const main = async () => {
+  await prisma.user.deleteMany();
   await prisma.user.createMany({
     data: [
       { email: 'alice@prisma.io', name: 'Alice' },
@@ -11,6 +12,7 @@ const main = async () => {
       { email: 'eve@prisma.io', name: 'Eve' },
     ],
   });
+  console.log('Users are successfully created.');
 };
 
 main()
