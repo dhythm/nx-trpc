@@ -35,6 +35,10 @@ npm install --save-dev @nrwl/node
 npx nx g @nrwl/node:application bff
 ```
 
+```sh
+npm install --save-dev npm-run-all
+```
+
 ## Getting Started
 
 ```sh
@@ -43,6 +47,8 @@ npm install
 
 # Run the BFF
 npx nx run bff:serve
+# Get data from BFF by curl
+curl http://localhost:3000/trpc/getUser\?input\=%221%22
 
 # Run the app
 npx nx run frontend:serve

@@ -16,12 +16,12 @@ const userList: User[] = [
 ];
 
 export const appRouter = t.router({
-  userById: t.procedure.input(z.string()).query((req) => {
+  getUser: t.procedure.input(z.string()).query((req) => {
     const input = req.input;
     const user = userList.find((it) => it.id === input);
     return user;
   }),
-  userCreate: t.procedure
+  createUser: t.procedure
     .input(z.object({ name: z.string() }))
     .mutation((req) => {
       const id = `${Math.random()}`;
