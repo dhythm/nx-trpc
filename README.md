@@ -83,6 +83,12 @@ npx nx run db:seed
 # Install dependencies.
 npm install
 
+# Run DB on the local
+touch libs/db/.env
+npx nx run db:create
+npx nx run db:migrate
+npx nx run db:seed
+
 # Run the app
 npm run dev
 ```
