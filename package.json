@@ -46,7 +46,7 @@
     "react-refresh": "^0.10.0",
     "react-test-renderer": "18.2.0",
     "ts-jest": "28.0.5",
-    "ts-node": "10.9.1",
+    "ts-node": "^10.9.1",
     "typescript": "~4.8.2",
     "url-loader": "^4.1.1"
   },
@@ -70,6 +70,7 @@
     "zod": "^3.20.2"
   },
   "prisma": {
-    "schema": "libs/db/prisma/schema.prisma"
+    "schema": "libs/db/prisma/schema.prisma",
+    "seed": "ts-node libs/db/prisma/seed.ts"
   }
 }

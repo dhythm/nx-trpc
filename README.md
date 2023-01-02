@@ -46,7 +46,7 @@ npm install --save-dev npm-run-all
 
 ### Optionals
 
-Install Prisma.
+Install Prisma,
 
 ```sh
 npm install @prisma/client
@@ -57,12 +57,23 @@ npx prisma init --datasource-provider postgresql
 cd -
 ```
 
-Run db in container.
+Run db in container,
 
 ```sh
 touch libs/db/docker-compose.yml
+
 npx nx run db:create
-docker rm -f $(docker ps -q -f 'NAME=db_postgres')
+npx nx run db:migrate-dev
+npx nx run db:migrate
+npx nx run db:delete
+```
+
+Seeding database,
+
+```sh
+npm install --save-dev ts-node
+touch libs/db/prisma/seed.ts
+npx nx run db:seed
 ```
 
 ## Getting started
