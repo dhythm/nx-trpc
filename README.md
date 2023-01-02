@@ -30,11 +30,17 @@ npx nx g @nrwl/workspace:library trpc
 Install server-side deps and set up a server.
 
 ```sh
-npm install fastify
+npm install fastify @fastify/websocket
+npm install --save-dev @nrwl/node
+npx nx g @nrwl/node:application bff
 ```
 
 ## Getting Started
 
 ```sh
+# Install dependencies.
 npm install
+
+# Run server
+npx nx run bff:serve
 ```

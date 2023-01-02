@@ -15,7 +15,7 @@ const userList: User[] = [
   },
 ];
 
-const appRouter = t.router({
+export const appRouter = t.router({
   userById: t.procedure.input(z.string()).query((req) => {
     const input = req.input;
     const user = userList.find((it) => it.id === input);
