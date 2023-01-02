@@ -38,13 +38,13 @@ npm install --save-dev @nrwl/node
 npx nx g @nrwl/node:application bff
 ```
 
-Install other dependencies.
+Install for npm scripts.
 
 ```sh
 npm install --save-dev npm-run-all
 ```
 
-## Getting Started
+## Getting started
 
 ```sh
 # Install dependencies.
