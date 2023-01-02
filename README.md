@@ -26,3 +26,15 @@ Create tRPC library.
 ```sh
 npx nx g @nrwl/workspace:library trpc
 ```
+
+Install server-side deps and set up a server.
+
+```sh
+npm install fastify
+```
+
+## Getting Started
+
+```sh
+npm install
+```
