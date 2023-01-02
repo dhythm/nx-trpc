@@ -25,8 +25,8 @@ You might get error as `Error: You're trying to use @trpc/server in a non-server
 So, It would be better to create tRPC client/server libraries both.
 
 ```sh
-npx nx g @nrwl/workspace:library trpc-client
-npx nx g @nrwl/workspace:library trpc-server
+npx nx g @nrwl/workspace:library --importPath=@trpc-client trpc-client
+npx nx g @nrwl/workspace:library --importPath=@trpc-server trpc-server
 ```
 
 Install server-side deps and create a server with fastify.
@@ -51,7 +51,7 @@ Install Prisma,
 ```sh
 npm install @prisma/client
 npm install prisma --save-dev
-npx nx g @nrwl/workspace:library db
+npx nx g @nrwl/workspace:library --importPath=@db db
 cd libs/db
 npx prisma init --datasource-provider postgresql
 cd -

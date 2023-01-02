@@ -1,35 +1,29 @@
+import { db } from '@db';
 import { initTRPC } from '@trpc/server';
 import { z } from 'zod';
 
 const t = initTRPC.create();
 
-type User = {
-  id: string;
-  name: string;
-};
-
-const userList: User[] = [
-  {
-    id: '1',
-    name: 'KATT',
-  },
-];
-
 export const appRouter = t.router({
-  getUser: t.procedure.input(z.string()).query((req) => {
-    const input = req.input;
-    const user = userList.find((it) => it.id === input);
+  getUsers: t.procedure.query(async () => {
+    const users = await db.user.findMany();
+    return users;
+  }),
+  getUser: t.procedure.input(z.string()).query(async (req) => {
+    const id = req.input;
+    const user = await db.user.findFirst({ where: { id } });
     return user;
   }),
   createUser: t.procedure
-    .input(z.object({ name: z.string() }))
-    .mutation((req) => {
-      const id = `${Math.random()}`;
-      const user: User = {
-        id,
-        name: req.input.name,
-      };
-      userList.push(user);
+    .input(z.object({ email: z.string().email(), name: z.string() }))
+    .mutation(async (req) => {
+      const { email, name } = req.input;
+      const user = await db.user.create({
+        data: {
+          email,
+          name,
+        },
+      });
       return user;
     }),
 });
