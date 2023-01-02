@@ -1,21 +1,21 @@
 {
-  "name": "trpc",
+  "name": "trpc-client",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/trpc/src",
+  "sourceRoot": "libs/trpc-client/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/trpc/**/*.ts"]
+        "lintFilePatterns": ["libs/trpc-client/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/trpc/jest.config.ts",
+        "jestConfig": "libs/trpc-client/jest.config.ts",
         "passWithNoTests": true
       }
     }

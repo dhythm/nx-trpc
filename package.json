@@ -52,6 +52,7 @@
   "dependencies": {
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",
+    "@fastify/cors": "^8.2.0",
     "@fastify/websocket": "^7.1.1",
     "@tanstack/react-query": "^4.20.4",
     "@trpc/client": "^10.7.0",

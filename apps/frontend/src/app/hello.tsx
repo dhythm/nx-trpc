@@ -1,4 +1,4 @@
-import { trpc } from '@nx-trpc/trpc';
+import { trpc } from '@nx-trpc/trpc-client';
 
 export const Hello = () => {
   const user = trpc.getUser.useQuery('1');

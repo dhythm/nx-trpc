@@ -21,19 +21,24 @@ Install tRPC dependencies.
 npm install @trpc/server @trpc/client @trpc/react-query @trpc/next @tanstack/react-query zod
 ```
 
-Create tRPC library.
+You might get error as `Error: You're trying to use @trpc/server in a non-server environment. This is not supported by default.` if client.ts and server.ts are in the same workspace like `trpc`.
+So, It would be better to create tRPC client/server libraries both.
 
 ```sh
-npx nx g @nrwl/workspace:library trpc
+npx nx g @nrwl/workspace:library trpc-client
+npx nx g @nrwl/workspace:library trpc-server
 ```
 
-Install server-side deps and create a server.
+Install server-side deps and create a server with fastify.
 
 ```sh
-npm install fastify @fastify/websocket
+npm install fastify @fastify/websocket @fastify/cors
+
 npm install --save-dev @nrwl/node
 npx nx g @nrwl/node:application bff
 ```
+
+Install other dependencies.
 
 ```sh
 npm install --save-dev npm-run-all
@@ -45,11 +50,6 @@ npm install --save-dev npm-run-all
 # Install dependencies.
 npm install
 
-# Run the BFF
-npx nx run bff:serve
-# Get data from BFF by curl
-curl http://localhost:3000/trpc/getUser\?input\=%221%22
-
 # Run the app
-npx nx run frontend:serve
+npm run dev
 ```

@@ -1,5 +1,6 @@
+import cors from '@fastify/cors';
 import ws from '@fastify/websocket';
-import { appRouter, createContext } from '@nx-trpc/trpc';
+import { appRouter, createContext } from '@nx-trpc/trpc-server';
 import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify';
 import fastify from 'fastify';
 
@@ -8,6 +9,12 @@ const server = fastify({
 });
 
 server.register(ws);
+
+const corsOptions = {
+  origin: /http:\/\/localhost:*/,
+  optionsSuccessStatus: 200,
+};
+server.register(cors, corsOptions);
 
 server.register(fastifyTRPCPlugin, {
   prefix: '/trpc',
