@@ -1,4 +1,4 @@
-# Nx + tRPC repository
+# Nx + tRPC (+ Prisma)
 
 ## Setting up the environment
 
@@ -42,6 +42,24 @@ Install for npm scripts.
 
 ```sh
 npm install --save-dev npm-run-all
+```
+
+### Optionals
+
+Install Prisma.
+
+```sh
+npm install prisma --save-dev
+npx nx g @nrwl/workspace:library db
+cd libs/db
+npx prisma init --datasource-provider postgresql
+cd -
+```
+
+Run db in container.
+
+```sh
+
 ```
 
 ## Getting started
