@@ -35,10 +35,6 @@ npm install --save-dev @nrwl/node
 npx nx g @nrwl/node:application bff
 ```
 
-```sh
-nx g @nrwl/react:application frontend
-```
-
 ## Getting Started
 
 ```sh
