@@ -27,12 +27,16 @@ Create tRPC library.
 npx nx g @nrwl/workspace:library trpc
 ```
 
-Install server-side deps and set up a server.
+Install server-side deps and create a server.
 
 ```sh
 npm install fastify @fastify/websocket
 npm install --save-dev @nrwl/node
 npx nx g @nrwl/node:application bff
+```
+
+```sh
+nx g @nrwl/react:application frontend
 ```
 
 ## Getting Started
@@ -41,6 +45,9 @@ npx nx g @nrwl/node:application bff
 # Install dependencies.
 npm install
 
-# Run server
+# Run the BFF
 npx nx run bff:serve
+
+# Run the app
+npx nx run frontend:serve
 ```
