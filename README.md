@@ -61,6 +61,7 @@ Run db in container,
 
 ```sh
 touch libs/db/docker-compose.yml
+touch libs/db/.env
 
 npx nx run db:create
 npx nx run db:migrate-dev
