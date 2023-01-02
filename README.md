@@ -49,6 +49,7 @@ npm install --save-dev npm-run-all
 Install Prisma.
 
 ```sh
+npm install @prisma/client
 npm install prisma --save-dev
 npx nx g @nrwl/workspace:library db
 cd libs/db
@@ -59,7 +60,9 @@ cd -
 Run db in container.
 
 ```sh
-
+touch libs/db/docker-compose.yml
+npx nx run db:create
+docker rm -f $(docker ps -q -f 'NAME=db_postgres')
 ```
 
 ## Getting started
@@ -71,3 +74,8 @@ npm install
 # Run the app
 npm run dev
 ```
+
+## References
+
+- https://github.com/joselevelsup/nx-trpc-nextjs-starter
+- https://github.com/nowlena/nx-trpc-test

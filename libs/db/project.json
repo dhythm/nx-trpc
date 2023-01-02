@@ -4,19 +4,36 @@
   "sourceRoot": "libs/db/src",
   "projectType": "library",
   "targets": {
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+    "create": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
       "options": {
-        "lintFilePatterns": ["libs/db/**/*.ts"]
+        "command": "docker compose run -p 5432:5432 -d postgres",
+        "cwd": "libs/db"
       }
     },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+    "migrate-dev": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
       "options": {
-        "jestConfig": "libs/db/jest.config.ts",
-        "passWithNoTests": true
+        "command": "npx prisma migrate dev --name $(npx -c 'echo \"$npm_package_version\"') --preview-feature",
+        "cwd": "libs/db"
+      }
+    },
+    "migrate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx prisma migrate deploy --preview-feature",
+        "cwd": "libs/db"
+      }
+    },
+    "delete": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "docker rm -f $(docker ps -q -f 'NAME=db_postgres')",
+        "cwd": "libs/db"
       }
     }
   },
