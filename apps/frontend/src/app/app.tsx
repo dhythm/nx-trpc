@@ -4,6 +4,7 @@ import { trpc } from '@trpc-client';
 import { httpBatchLink } from '@trpc/client';
 import { useState } from 'react';
 import { Hello } from './hello';
+import { Users } from './users';
 
 const StyledApp = styled.div`
   // Your style here
@@ -25,6 +26,7 @@ export function App() {
       <QueryClientProvider client={queryClient}>
         <StyledApp>
           <Hello />
+          <Users />
         </StyledApp>
       </QueryClientProvider>
     </trpc.Provider>
