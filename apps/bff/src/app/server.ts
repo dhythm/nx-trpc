@@ -1,6 +1,6 @@
 import cors from '@fastify/cors';
 import ws from '@fastify/websocket';
-import { appRouter, createContext } from '@nx-trpc/trpc-server';
+import { appRouter, createContext } from '@trpc-server';
 import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify';
 import fastify from 'fastify';
 

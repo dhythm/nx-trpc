@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { trpc } from '@nx-trpc/trpc-client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { trpc } from '@trpc-client';
 import { httpBatchLink } from '@trpc/client';
 import { useState } from 'react';
 import { Hello } from './hello';
