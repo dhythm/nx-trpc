@@ -3,10 +3,10 @@ import { z } from 'zod';
 
 const t = initTRPC.create();
 
-interface User {
+type User = {
   id: string;
   name: string;
-}
+};
 
 const userList: User[] = [
   {
