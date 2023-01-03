@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { trpc } from '@trpc-client';
-import { httpBatchLink } from '@trpc/client';
+import { trpc, trpcClient as initialTrpcClient } from '@trpc-client';
 import { useState } from 'react';
 import { Hello } from './hello';
 import { Users } from './users';
@@ -12,15 +11,7 @@ const StyledApp = styled.div`
 
 export function App() {
   const [queryClient] = useState(() => new QueryClient());
-  const [trpcClient] = useState(() =>
-    trpc.createClient({
-      links: [
-        httpBatchLink({
-          url: 'http://localhost:3000/trpc',
-        }),
-      ],
-    })
-  );
+  const [trpcClient] = useState(() => initialTrpcClient);
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
