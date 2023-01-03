@@ -92,7 +92,7 @@ Install MSW to mock http requests.
 ```sh
 npm install --save-dev msw
 
-npx nx g @nrwl/workspace:library --importPath=@mock mock
+npx nx g @nrwl/workspace:library --importPath='@mock/server' mock
 npx msw init apps/frontend/src --save
 ```
 
