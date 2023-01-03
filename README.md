@@ -97,6 +97,7 @@ npx msw init apps/frontend/src --save
 ```
 
 `apps/frontend/project.json` の `targets > build > assets` に `mockServiceWorker.js` を追加。
+ブラウザでは `msw/node` は利用できないため、alias を修正して間違えたファイルが読み込まれないように `tsconfig.base.json` を修正する。
 
 ## Getting started
 

@@ -17,7 +17,7 @@
     "paths": {
       "@db": ["libs/db/src/index.ts"],
       "@mock/client": ["libs/mock/src/lib/browser.ts"],
-      "@mock/server": ["libs/mock/src/lib/server.ts"],
+      "@mock/server": ["libs/mock/src/index.ts"],
       "@trpc-client": ["libs/trpc-client/src/index.ts"],
       "@trpc-server": ["libs/trpc-server/src/index.ts"]
     }
