@@ -79,12 +79,20 @@ touch libs/db/prisma/seed.ts
 npx nx run db:seed
 ```
 
+Login to database.
+
+```sh
+docker exec -it $(docker ps -q -f 'NAME=db_postgres') psql -U postgres postgres
+```
+
 ### Development
 
 Install MSW to mock http requests.
 
 ```sh
 npm install --save-dev msw
+
+npx nx g @nrwl/workspace:library --importPath=@mock mock
 ```
 
 ## Getting started
