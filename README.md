@@ -93,7 +93,10 @@ Install MSW to mock http requests.
 npm install --save-dev msw
 
 npx nx g @nrwl/workspace:library --importPath=@mock mock
+npx msw init apps/frontend/src --save
 ```
+
+`apps/frontend/project.json` の `targets > build > assets` に `mockServiceWorker.js` を追加。
 
 ## Getting started
 

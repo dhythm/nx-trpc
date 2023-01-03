@@ -73,5 +73,8 @@
   "prisma": {
     "schema": "libs/db/prisma/schema.prisma",
     "seed": "ts-node --project libs/db/tsconfig.json libs/db/prisma/seed.ts"
+  },
+  "msw": {
+    "workerDirectory": "apps/frontend/src"
   }
 }

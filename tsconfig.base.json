@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@db": ["libs/db/src/index.ts"],
-      "@mock": ["libs/mock/src/index.ts"],
+      "@mock/client": ["libs/mock/src/lib/browser.ts"],
+      "@mock/server": ["libs/mock/src/lib/server.ts"],
       "@trpc-client": ["libs/trpc-client/src/index.ts"],
       "@trpc-server": ["libs/trpc-server/src/index.ts"]
     }

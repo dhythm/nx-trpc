@@ -1,7 +1,9 @@
 import { rest } from 'msw';
 
+const URL = 'http://localhost:3000';
+
 export const handlers = [
-  rest.get('/trpc/getUsers', (req, res, ctx) => {
+  rest.get(`${URL}/trpc/getUsers`, (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
@@ -47,7 +49,7 @@ export const handlers = [
       })
     );
   }),
-  rest.get('/trpc/getUser', (req, res, ctx) => {
+  rest.get(`${URL}/trpc/getUser`, (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
@@ -63,7 +65,7 @@ export const handlers = [
       })
     );
   }),
-  rest.post('/trpc/createUser', (req, res, ctx) => {
+  rest.post(`${URL}/trpc/createUser`, (req, res, ctx) => {
     return res(ctx.status(200), ctx.json({}));
   }),
 ];
