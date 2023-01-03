@@ -2,7 +2,7 @@
 
 ## Setting up the environment
 
-Create a new repo.
+### Create repo
 
 ```sh
 npx create-nx-workspace@latest
@@ -15,21 +15,23 @@ npx create-nx-workspace@latest
 ✔ Enable distributed caching to make your CI faster · No
 ```
 
-Install tRPC dependencies.
+### Install tRPC libraries.
 
 ```sh
 npm install @trpc/server @trpc/client @trpc/react-query @trpc/next @tanstack/react-query zod
 ```
 
-You might get error as `Error: You're trying to use @trpc/server in a non-server environment. This is not supported by default.` if client.ts and server.ts are in the same workspace like `trpc`.
-So, It would be better to create tRPC client/server libraries both.
+You might get error as `Error: You're trying to use @trpc/server in a non-server environment. This is not supported by default.` if client.ts and server.ts are in the same workspace.
+So, It would be better to create tRPC client/server libraries each.
 
 ```sh
 npx nx g @nrwl/workspace:library --importPath=@trpc-client trpc-client
 npx nx g @nrwl/workspace:library --importPath=@trpc-server trpc-server
 ```
 
-Install server-side deps and create a server with fastify.
+### Setting up the server-side
+
+Install fastify and create a workspace.
 
 ```sh
 npm install fastify @fastify/websocket @fastify/cors
@@ -38,15 +40,15 @@ npm install --save-dev @nrwl/node
 npx nx g @nrwl/node:application bff
 ```
 
-Install for npm scripts.
+### NPM scripts
 
 ```sh
 npm install --save-dev npm-run-all
 ```
 
-### Optionals
+### Database (optional)
 
-Install Prisma,
+Install prisma and create a workspace.
 
 ```sh
 npm install @prisma/client
@@ -57,7 +59,7 @@ npx prisma init --datasource-provider postgresql
 cd -
 ```
 
-Run db in container,
+Run DB in container.
 
 ```sh
 touch libs/db/docker-compose.yml
@@ -69,12 +71,20 @@ npx nx run db:migrate
 npx nx run db:delete
 ```
 
-Seeding database,
+Seeding database.
 
 ```sh
 npm install --save-dev ts-node @types/node
 touch libs/db/prisma/seed.ts
 npx nx run db:seed
+```
+
+### Development
+
+Install MSW to mock http requests.
+
+```sh
+npm install --save-dev msw
 ```
 
 ## Getting started
