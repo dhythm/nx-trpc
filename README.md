@@ -29,6 +29,48 @@ npx nx g @nrwl/workspace:library --importPath=@trpc-client trpc-client
 npx nx g @nrwl/workspace:library --importPath=@trpc-server trpc-server
 ```
 
+Update tsconfig.base.json like,
+
+```json
+{
+  ...
+  "compilerOptions": {
+    ...
+    "paths": {
+      ...
+      "@trpc-client": ["libs/trpc-client/src/index.ts"],
+      "@trpc-server": ["libs/trpc-server/src/index.ts"]
+    }
+  }
+}
+```
+
+Or you can choose one workspace way as following step.
+
+Create a workspace.
+
+```sh
+npx nx g @nrwl/workspace:library trpc
+```
+
+Update tsconfig.base.json like,
+
+```json
+{
+  ...
+  "compilerOptions": {
+    ...
+    "paths": {
+      ...
+      "@trpc-client": ["libs/trpc/src/lib/client/index.ts"],
+      "@trpc-server": ["libs/trpc/src/lib/server/index.ts"]
+    }
+  }
+}
+```
+
+The former is more Nx way, but the latter is more efficient way.
+
 ### Setting up the server-side
 
 Install fastify and create a workspace.
