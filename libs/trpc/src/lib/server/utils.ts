@@ -46,7 +46,7 @@ export const request = async <T = {}>({
       const value = payload[key];
       if (Array.isArray(value)) {
         value.forEach((v) => url.searchParams.append(key, v));
-      } else if (value !== undefined) {
+      } else if (value !== undefined || value !== null) {
         url.searchParams.append(key, value);
       }
     }
