@@ -20,8 +20,6 @@
       "@mock/server": ["libs/mock/src/index.ts"],
       "@trpc-client": ["libs/trpc/src/lib/client/index.ts"],
       "@trpc-server": ["libs/trpc/src/lib/server/index.ts"]
-      // "@trpc-client": ["libs/trpc-client/src/index.ts"],
-      // "@trpc-server": ["libs/trpc-server/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
