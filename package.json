@@ -5,6 +5,7 @@
   "scripts": {
     "dev:client": "nx run frontend:serve",
     "dev:server": "nx run bff:serve",
+    "dev:isomorphic": "nx run isomorphic-bff:serve",
     "dev": "run-p dev:* --print-label"
   },
   "private": true,

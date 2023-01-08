@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@db": ["libs/db/src/index.ts"],
+      "@isomorphic-trpc": ["libs/isomorphic-trpc/src/index.ts"],
       "@mock/client": ["libs/mock/src/lib/browser.ts"],
       "@mock/server": ["libs/mock/src/index.ts"],
       "@trpc-client": ["libs/trpc/src/lib/client/index.ts"],
