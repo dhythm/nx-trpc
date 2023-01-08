@@ -1,5 +1,4 @@
-import { initTRPC } from '@trpc/server';
-import { inferAsyncReturnType } from '@trpc/server';
+import { inferAsyncReturnType, initTRPC } from '@trpc/server';
 import { CreateFastifyContextOptions } from '@trpc/server/adapters/fastify';
 
 const t = initTRPC.create();
@@ -19,13 +18,11 @@ const getEpisodes = t.procedure.query(async () => {
   return episodes;
 });
 
-
 export const appRouter = t.router({
   getEpisodes,
 });
 
 export type AppRouter = typeof appRouter;
-
 
 export function createContext({ req, res }: CreateFastifyContextOptions) {
   const user = { name: req.headers.username ?? 'anonymous' };
@@ -34,3 +31,4 @@ export function createContext({ req, res }: CreateFastifyContextOptions) {
 }
 
 export type Context = inferAsyncReturnType<typeof createContext>;
+

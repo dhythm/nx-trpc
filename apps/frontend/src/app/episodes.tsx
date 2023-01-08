@@ -1,6 +1,7 @@
 import { AppRouter } from "@isomorphic-trpc";
 import { createTRPCReact, httpLink } from "@trpc/react-query";
 
+
 export const trpc = createTRPCReact<AppRouter>()
 export const trpcClient = trpc.createClient({
   links: [
@@ -17,9 +18,7 @@ export const Episodes = () => {
     <div>
       <ul>
         {episodes.data.map((episode) => (
-          <li key={episode}>
-            {episode}
-          </li>
+          <li key={episode}>{episode}</li>
         ))}
       </ul>
     </div>
