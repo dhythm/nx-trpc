@@ -1,5 +1,5 @@
 // https://nx.dev/recipes/other/customize-webpack
-const { merge } = require('webpack-merge')
+const { merge } = require('webpack-merge');
 
 module.exports = (config, context) => {
   return merge(config, {
@@ -7,11 +7,9 @@ module.exports = (config, context) => {
       rules: [
         {
           test: /\.ts$/i,
-          use: ['babel-loader']
-        }
-      ]
-    }
-  })
-}
-
-
+          use: ['babel-loader'],
+        },
+      ],
+    },
+  });
+};
