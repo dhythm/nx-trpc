@@ -1,14 +1,17 @@
 import cors from '@fastify/cors';
+import fastify from 'fastify';
 import ws from '@fastify/websocket';
+import { API_URL } from '@env';
 import { appRouter, createContext } from '@trpc-server';
 import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify';
-import fastify from 'fastify';
 
 const server = fastify({
   maxParamLength: 5000,
 });
 
 server.register(ws);
+
+console.log(API_URL)
 
 const corsOptions = {
   origin: /http:\/\/localhost:*/,
