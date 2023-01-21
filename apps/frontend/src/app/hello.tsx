@@ -1,7 +1,7 @@
 import { trpc } from '@trpc-client';
 
 export const Hello = () => {
-  const user = trpc.getUser.useQuery('1');
+  const user = trpc.user.getUser.useQuery('1');
   console.log({ ...user });
   if (user.isLoading) return <div>Loading...</div>;
   return (

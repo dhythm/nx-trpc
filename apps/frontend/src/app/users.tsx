@@ -1,7 +1,7 @@
 import { trpc } from '@trpc-client';
 
 export const Users = () => {
-  const users = trpc.getUsers.useQuery();
+  const users = trpc.user.getUsers.useQuery();
   if (!users.data) return <div>Loading...</div>;
   return (
     <div>
